@@ -1,8 +1,12 @@
-import React from 'react'
 import ReactDOM from 'react-dom/client'
 import App from './App.tsx'
-import './index.css'
+import worker from "@/mock/index.ts";
 
+// @ts-ignore
 ReactDOM.createRoot(document.getElementById('root')).render(
-    <App />
+    <App/>
 )
+
+if (process.env.NODE_ENV === 'development') {
+    worker.start()
+}
