@@ -1,7 +1,7 @@
 import {StyleProvider} from '@ant-design/cssinjs';
 import {App as AntdApp, ConfigProvider} from "antd"
-import {Login} from '@/pages/login/Login'
 import {QueryClient, QueryClientProvider} from '@tanstack/react-query';
+import Router from "@/router";
 
 const queryClient = new QueryClient()
 
@@ -14,7 +14,7 @@ function App() {
                     <QueryClientProvider client={queryClient}>
                         <AntdApp>
                             <div style={{height: '100%'}}>
-                                <Login/>
+                                <Router/>
                             </div>
                         </AntdApp>
                     </QueryClientProvider>

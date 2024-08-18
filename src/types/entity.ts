@@ -1,7 +1,7 @@
 export interface UserInfo {
     id: number
     username: string
-    password: string
+    token: string
 }
 
 export interface Result<T = any> {

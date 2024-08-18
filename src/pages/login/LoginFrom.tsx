@@ -2,11 +2,15 @@ import {useContext, useState} from "react";
 import {LoginState, LoginStateContext} from "@/pages/login/providers/LoginStateProvider.tsx";
 import {Button, Form, Input, message} from "antd";
 import UserService, {LoginRequest} from "@/api/services/userService.ts";
+import {useNavigate} from "react-router-dom";
+import {useUserActions} from "@/store/userStore.ts";
 
 export function LoginFrom() {
     const [loading, setLoading] = useState(false)
     const {loginState} = useContext(LoginStateContext)
+    const {setUserInfo} = useUserActions()
     const [messageApi, contextHolder] = message.useMessage()
+    const navigate = useNavigate();
     if (loginState !== LoginState.LOGIN) {
         return null
     }
@@ -15,7 +19,8 @@ export function LoginFrom() {
         try {
             const result = await UserService.Login(req);
             messageApi.success(`登录成功${result.username}`)
-            console.log("success", result)
+            setUserInfo(result)
+            navigate("/", {replace: true})
         } catch (err) {
             messageApi.error(err.message)
         }

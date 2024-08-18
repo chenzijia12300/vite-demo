@@ -27,9 +27,7 @@ export function Login() {
                 className="hidden grow flex-col items-center justify-center gap-[80px] bg-center  bg-no-repeat md:flex"
                 style={{background: bg}}
             >
-                <div className="text-3xl font-bold leading-normal lg:text-4xl xl:text-5xl">
-                    Orange Add
-                </div>
+                <div className="text-3xl font-bold leading-normal lg:text-4xl xl:text-5xl">Orange Add</div>
                 <img className="max-w-[480px]" src={DashboardImage} alt=""/>
                 <Typography.Text className="flex flex-row gap-[16px] text-2xl">
                     OrangeAdd的小窝
